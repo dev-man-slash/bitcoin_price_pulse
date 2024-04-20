@@ -3,8 +3,6 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 import '../../utils/constants/constants.dart';
 
-// const baseUrl = "$BASE_URL/api/v1/user/";
-
 class ApiProvider {
   Dio? _dio;
 
@@ -21,14 +19,15 @@ class ApiProvider {
     _dio = Dio(options)
       ..interceptors.add(
         PrettyDioLogger(
-            requestHeader: true,
-            requestBody: true,
-            responseBody: true,
-            responseHeader: true,
-            request: true,
-            error: true,
-            compact: true,
-            maxWidth: 90),
+          requestHeader: true,
+          requestBody: true,
+          responseBody: true,
+          responseHeader: true,
+          request: true,
+          error: true,
+          compact: true,
+          maxWidth: 90,
+        ),
       );
   }
 
@@ -37,5 +36,6 @@ class ApiProvider {
   factory ApiProvider() {
     return _singleton;
   }
+
   Dio get httpClient => _dio!;
 }
