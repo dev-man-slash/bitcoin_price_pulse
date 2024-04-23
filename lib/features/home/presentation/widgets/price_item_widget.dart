@@ -14,7 +14,7 @@ class PriceItemWidget extends StatelessWidget {
   final String currency;
   final String rate;
   final String oldRate;
-  final String symbol;
+  final IconData symbol;
   final void Function() onTab;
 
   @override
@@ -22,52 +22,65 @@ class PriceItemWidget extends StatelessWidget {
     final style = GoogleFonts.roboto();
 
     return GestureDetector(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Row(
-          children: [
-            Text(
-              'BTC ',
-              style: style.copyWith(
-                fontSize: 24,
-                fontWeight: FontWeight.w700,
+      onTap: onTab,
+      child: SizedBox(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            children: [
+              Text(
+                'BTC ',
+                style: style.copyWith(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
-            ),
-            Text(
-              '/ $currency',
-              style: style.copyWith(
-                fontSize: 18,
-                fontWeight: FontWeight.w400,
+              Text(
+                '/ $currency',
+                style: style.copyWith(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
-            ),
-            const Spacer(),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text(
-                  rate,
-                  style: style.copyWith(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
+              const Spacer(),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    rate,
+                    style: style.copyWith(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  height: 4,
-                ),
-                Text(
-                  '\$ $oldRate',
-                  style: style.copyWith(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
+                  const SizedBox(
+                    height: 4,
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              width: 16,
-            ),
-            const Icon(Icons.keyboard_arrow_right),
-          ],
+                  Row(
+                    children: [
+                      Icon(symbol,size: 14,),
+                      const SizedBox(
+                        width: 4,
+                      ),
+                      Text(
+                        oldRate,
+                        style: style.copyWith(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(
+                width: 16,
+              ),
+              const Icon(
+                Icons.keyboard_arrow_right,
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -24,7 +24,7 @@ class PriceModel extends PriceEntity {
       code: json['code'],
       description: json['description'],
       rate: json['rate'],
-      rateFloat: json['rateFloat'],
+      rateFloat: json['rate_float'],
       symbol: json['symbol'],
     );
   }

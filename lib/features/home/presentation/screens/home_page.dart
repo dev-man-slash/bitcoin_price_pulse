@@ -54,7 +54,7 @@ class _HomeViewState extends State<HomeView> {
   int _selectedIndex = 0;
 
   final tabs = [
-    const HomeTab(),
+    HomeTab(),
     const CalcTab(),
   ];
 
