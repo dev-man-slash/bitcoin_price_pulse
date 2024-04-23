@@ -3,6 +3,6 @@ import 'package:dartz/dartz.dart';
 
 import '../../../../core/exceptions/failures.dart';
 
-abstract class FilterRepository {
+abstract class BitcoinRepository {
   Future<Either<Failure, BitcoinEntity>> getPrices();
 }

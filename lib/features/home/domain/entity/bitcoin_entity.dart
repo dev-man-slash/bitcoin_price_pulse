@@ -1,11 +1,13 @@
-import 'package:bitcoin_price_pulse/features/home/domain/entity/price_entity.dart';
+import 'package:bitcoin_price_pulse/features/home/domain/entity/update_time_entity.dart';
 import 'package:equatable/equatable.dart';
 
+import 'currency_entity.dart';
+
 class BitcoinEntity extends Equatable {
-  final UpdateTime? time;
+  final UpdateTimeEntity? time;
   final String? disclaimer;
   final String? chartName;
-  final BitcoinEntity? bpi;
+  final CurrencyEntity? bpi;
 
   const BitcoinEntity({
     this.time,

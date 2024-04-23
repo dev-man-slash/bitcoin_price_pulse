@@ -4,15 +4,15 @@ import 'package:dartz/dartz.dart';
 
 import '../../../../core/exceptions/failures.dart';
 
+// @injectable
+class GetPricesUseCase {
+  final BitcoinRepository repository;
 
-class CallFilterSchemaUseCase {
-  final FilterRepository repository;
-
-  CallFilterSchemaUseCase({
+  GetPricesUseCase({
     required this.repository,
   });
 
-  Future<Either<Failure, BitcoinEntity>> call({required int categoryId}) async {
+  Future<Either<Failure, BitcoinEntity>> getPrices() async {
     return await repository.getPrices();
   }
 }

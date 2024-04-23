@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import '../../../../../core/data/network/api_provider.dart';
 import '../../../../core/exceptions/server_exception.dart';
 
+// @lazySingleton
 class BitcoinRemoteDataImpl implements BitcoinRemoteData {
   @override
   Future<Response> getPrice() async {
