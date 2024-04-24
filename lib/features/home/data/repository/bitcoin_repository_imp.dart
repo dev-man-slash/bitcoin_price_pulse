@@ -7,7 +7,6 @@ import 'package:dartz/dartz.dart';
 
 import '../../../../core/exceptions/server_exception.dart';
 
-// @LazySingleton(as: BitcoinRepository)
 class BitcoinRepositoryImp extends BitcoinRepository {
   final BitcoinRemoteData remoteData;
 

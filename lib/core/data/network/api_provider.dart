@@ -8,7 +8,7 @@ class ApiProvider {
 
   static BaseOptions options = BaseOptions(
     baseUrl: BASE_URL,
-    connectTimeout: const Duration(seconds: 30),
+    connectTimeout: const Duration(seconds: 50),
     headers: {
       "Content-Type": "application/json",
       "Accept": "application/json",

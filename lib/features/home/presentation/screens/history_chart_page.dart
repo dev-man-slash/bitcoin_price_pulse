@@ -162,21 +162,10 @@ class HistoryChartPage extends StatelessWidget {
                             axisSide: AxisSide.bottom,
                             child: FittedBox(
                               child: Text(
-                                bitcoins[index.toInt()]
-                                    .time!
-                                    .updatedISO!
-                                    .substring(
-                                      bitcoins[index.toInt()]
-                                              .time!
-                                              .updatedISO!
-                                              .indexOf('T') +
-                                          1,
-                                      bitcoins[index.toInt()]
-                                              .time!
-                                              .updatedISO!
-                                              .indexOf('T') +
-                                          6,
-                                    ),
+                                _times[index.toInt()].substring(
+                                  _times[index.toInt()].indexOf('T') + 1,
+                                  _times[index.toInt()].indexOf('T') + 6,
+                                ),
                               ),
                             ),
                           );

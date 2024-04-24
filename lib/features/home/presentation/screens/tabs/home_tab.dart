@@ -16,7 +16,7 @@ class HomeTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<BitcoinBloc, BitcoinState>(
       builder: (context, state) {
-        if (state.isLoading || state.signUpResponse == null) {
+        if (state.isLoading || state.updatePriceResult == null) {
           return const Center(child: CircularProgressIndicator());
         }
         const divider = Divider(
@@ -43,7 +43,7 @@ class HomeTab extends StatelessWidget {
                     height: 16,
                   ),
                   Text(
-                    state.signUpResponse!.chartName!,
+                    currentPrice.chartName!,
                     style: style.copyWith(
                       fontSize: 26,
                       fontWeight: FontWeight.w700,
@@ -53,7 +53,7 @@ class HomeTab extends StatelessWidget {
                     height: 8,
                   ),
                   Text(
-                    'Last Update: ${state.signUpResponse?.time?.updated ?? ''}',
+                    'Last Update: ${currentPrice.time?.updated ?? ''}',
                   ),
                   const SizedBox(
                     height: 20,

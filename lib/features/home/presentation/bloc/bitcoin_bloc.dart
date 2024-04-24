@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:bitcoin_price_pulse/features/home/domain/entity/bitcoin_entity.dart';
-import 'package:bitcoin_price_pulse/features/home/domain/entity/price_entity.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -21,9 +20,6 @@ class BitcoinBloc extends Bloc<BitcoinEvent, BitcoinState> {
       : super(
           const BitcoinState(
             isLoading: false,
-            eURPricesList: [],
-            gBPPricesList: [],
-            uSDPricesList: [],
             bitcoinList: [],
             isError: false,
           ),
@@ -34,7 +30,7 @@ class BitcoinBloc extends Bloc<BitcoinEvent, BitcoinState> {
           updatedPrice: (e) async {
             emit(
               state.copyWith(
-                isLoading: state.uSDPricesList.isEmpty ? true : false,
+                isLoading: state.bitcoinList.isEmpty ? true : false,
                 isError: false,
               ),
             );
@@ -51,21 +47,6 @@ class BitcoinBloc extends Bloc<BitcoinEvent, BitcoinState> {
                 );
               },
               (data) {
-                List<PriceEntity> uSDPricesList = List<PriceEntity>.from(
-                  state.uSDPricesList,
-                  growable: true,
-                )..add(data.bpi!.USD!);
-
-                List<PriceEntity> eURPricesList = List<PriceEntity>.from(
-                  state.eURPricesList,
-                  growable: true,
-                )..add(data.bpi!.EUR!);
-
-                List<PriceEntity> gBPPricesList = List<PriceEntity>.from(
-                  state.gBPPricesList,
-                  growable: true,
-                )..add(data.bpi!.GBP!);
-
                 List<BitcoinEntity> bitcoinList = List<BitcoinEntity>.from(
                   state.bitcoinList,
                   growable: true,
@@ -73,10 +54,7 @@ class BitcoinBloc extends Bloc<BitcoinEvent, BitcoinState> {
 
                 emit(
                   state.copyWith(
-                    signUpResponse: data,
-                    uSDPricesList: uSDPricesList,
-                    eURPricesList: eURPricesList,
-                    gBPPricesList: gBPPricesList,
+                    updatePriceResult: result,
                     bitcoinList: bitcoinList,
                     isLoading: false,
                     isError: false,

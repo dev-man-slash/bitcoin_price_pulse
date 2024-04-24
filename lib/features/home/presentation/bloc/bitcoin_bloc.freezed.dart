@@ -21,7 +21,6 @@ mixin _$BitcoinEvent {
     required TResult Function() updatedPrice,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? updatedPrice,
@@ -33,13 +32,11 @@ mixin _$BitcoinEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_UpdatedPrice value) updatedPrice,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_UpdatedPrice value)? updatedPrice,
@@ -169,10 +166,8 @@ abstract class _UpdatedPrice implements BitcoinEvent {
 
 /// @nodoc
 mixin _$BitcoinState {
-  BitcoinEntity? get signUpResponse => throw _privateConstructorUsedError;
-  List<PriceEntity> get uSDPricesList => throw _privateConstructorUsedError;
-  List<PriceEntity> get gBPPricesList => throw _privateConstructorUsedError;
-  List<PriceEntity> get eURPricesList => throw _privateConstructorUsedError;
+  Either<Failure, BitcoinEntity>? get updatePriceResult =>
+      throw _privateConstructorUsedError;
   List<BitcoinEntity> get bitcoinList => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
@@ -189,10 +184,7 @@ abstract class $BitcoinStateCopyWith<$Res> {
       _$BitcoinStateCopyWithImpl<$Res, BitcoinState>;
   @useResult
   $Res call(
-      {BitcoinEntity? signUpResponse,
-      List<PriceEntity> uSDPricesList,
-      List<PriceEntity> gBPPricesList,
-      List<PriceEntity> eURPricesList,
+      {Either<Failure, BitcoinEntity>? updatePriceResult,
       List<BitcoinEntity> bitcoinList,
       bool isLoading,
       bool isError});
@@ -211,31 +203,16 @@ class _$BitcoinStateCopyWithImpl<$Res, $Val extends BitcoinState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? signUpResponse = freezed,
-    Object? uSDPricesList = null,
-    Object? gBPPricesList = null,
-    Object? eURPricesList = null,
+    Object? updatePriceResult = freezed,
     Object? bitcoinList = null,
     Object? isLoading = null,
     Object? isError = null,
   }) {
     return _then(_value.copyWith(
-      signUpResponse: freezed == signUpResponse
-          ? _value.signUpResponse
-          : signUpResponse // ignore: cast_nullable_to_non_nullable
-              as BitcoinEntity?,
-      uSDPricesList: null == uSDPricesList
-          ? _value.uSDPricesList
-          : uSDPricesList // ignore: cast_nullable_to_non_nullable
-              as List<PriceEntity>,
-      gBPPricesList: null == gBPPricesList
-          ? _value.gBPPricesList
-          : gBPPricesList // ignore: cast_nullable_to_non_nullable
-              as List<PriceEntity>,
-      eURPricesList: null == eURPricesList
-          ? _value.eURPricesList
-          : eURPricesList // ignore: cast_nullable_to_non_nullable
-              as List<PriceEntity>,
+      updatePriceResult: freezed == updatePriceResult
+          ? _value.updatePriceResult
+          : updatePriceResult // ignore: cast_nullable_to_non_nullable
+              as Either<Failure, BitcoinEntity>?,
       bitcoinList: null == bitcoinList
           ? _value.bitcoinList
           : bitcoinList // ignore: cast_nullable_to_non_nullable
@@ -261,10 +238,7 @@ abstract class _$$BitcoinStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {BitcoinEntity? signUpResponse,
-      List<PriceEntity> uSDPricesList,
-      List<PriceEntity> gBPPricesList,
-      List<PriceEntity> eURPricesList,
+      {Either<Failure, BitcoinEntity>? updatePriceResult,
       List<BitcoinEntity> bitcoinList,
       bool isLoading,
       bool isError});
@@ -281,31 +255,16 @@ class __$$BitcoinStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? signUpResponse = freezed,
-    Object? uSDPricesList = null,
-    Object? gBPPricesList = null,
-    Object? eURPricesList = null,
+    Object? updatePriceResult = freezed,
     Object? bitcoinList = null,
     Object? isLoading = null,
     Object? isError = null,
   }) {
     return _then(_$BitcoinStateImpl(
-      signUpResponse: freezed == signUpResponse
-          ? _value.signUpResponse
-          : signUpResponse // ignore: cast_nullable_to_non_nullable
-              as BitcoinEntity?,
-      uSDPricesList: null == uSDPricesList
-          ? _value._uSDPricesList
-          : uSDPricesList // ignore: cast_nullable_to_non_nullable
-              as List<PriceEntity>,
-      gBPPricesList: null == gBPPricesList
-          ? _value._gBPPricesList
-          : gBPPricesList // ignore: cast_nullable_to_non_nullable
-              as List<PriceEntity>,
-      eURPricesList: null == eURPricesList
-          ? _value._eURPricesList
-          : eURPricesList // ignore: cast_nullable_to_non_nullable
-              as List<PriceEntity>,
+      updatePriceResult: freezed == updatePriceResult
+          ? _value.updatePriceResult
+          : updatePriceResult // ignore: cast_nullable_to_non_nullable
+              as Either<Failure, BitcoinEntity>?,
       bitcoinList: null == bitcoinList
           ? _value._bitcoinList
           : bitcoinList // ignore: cast_nullable_to_non_nullable
@@ -326,49 +285,19 @@ class __$$BitcoinStateImplCopyWithImpl<$Res>
 
 class _$BitcoinStateImpl implements _BitcoinState {
   const _$BitcoinStateImpl(
-      {this.signUpResponse,
-      required final List<PriceEntity> uSDPricesList,
-      required final List<PriceEntity> gBPPricesList,
-      required final List<PriceEntity> eURPricesList,
+      {this.updatePriceResult,
       required final List<BitcoinEntity> bitcoinList,
       required this.isLoading,
       required this.isError})
-      : _uSDPricesList = uSDPricesList,
-        _gBPPricesList = gBPPricesList,
-        _eURPricesList = eURPricesList,
-        _bitcoinList = bitcoinList;
+      : _bitcoinList = bitcoinList;
 
   @override
-  final BitcoinEntity? signUpResponse;
-  final List<PriceEntity> _uSDPricesList;
-  @override
-  List<PriceEntity> get uSDPricesList {
-    if (_uSDPricesList is EqualUnmodifiableListView) return _uSDPricesList;
-// ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_uSDPricesList);
-  }
-
-  final List<PriceEntity> _gBPPricesList;
-  @override
-  List<PriceEntity> get gBPPricesList {
-    if (_gBPPricesList is EqualUnmodifiableListView) return _gBPPricesList;
-// ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_gBPPricesList);
-  }
-
-  final List<PriceEntity> _eURPricesList;
-  @override
-  List<PriceEntity> get eURPricesList {
-    if (_eURPricesList is EqualUnmodifiableListView) return _eURPricesList;
-// ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_eURPricesList);
-  }
-
+  final Either<Failure, BitcoinEntity>? updatePriceResult;
   final List<BitcoinEntity> _bitcoinList;
   @override
   List<BitcoinEntity> get bitcoinList {
     if (_bitcoinList is EqualUnmodifiableListView) return _bitcoinList;
-// ignore: implicit_dynamic_type
+    // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_bitcoinList);
   }
 
@@ -379,7 +308,7 @@ class _$BitcoinStateImpl implements _BitcoinState {
 
   @override
   String toString() {
-    return 'BitcoinState(signUpResponse: $signUpResponse, uSDPricesList: $uSDPricesList, gBPPricesList: $gBPPricesList, eURPricesList: $eURPricesList, bitcoinList: $bitcoinList, isLoading: $isLoading, isError: $isError)';
+    return 'BitcoinState(updatePriceResult: $updatePriceResult, bitcoinList: $bitcoinList, isLoading: $isLoading, isError: $isError)';
   }
 
   @override
@@ -387,14 +316,8 @@ class _$BitcoinStateImpl implements _BitcoinState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BitcoinStateImpl &&
-            (identical(other.signUpResponse, signUpResponse) ||
-                other.signUpResponse == signUpResponse) &&
-            const DeepCollectionEquality()
-                .equals(other._uSDPricesList, _uSDPricesList) &&
-            const DeepCollectionEquality()
-                .equals(other._gBPPricesList, _gBPPricesList) &&
-            const DeepCollectionEquality()
-                .equals(other._eURPricesList, _eURPricesList) &&
+            (identical(other.updatePriceResult, updatePriceResult) ||
+                other.updatePriceResult == updatePriceResult) &&
             const DeepCollectionEquality()
                 .equals(other._bitcoinList, _bitcoinList) &&
             (identical(other.isLoading, isLoading) ||
@@ -403,15 +326,8 @@ class _$BitcoinStateImpl implements _BitcoinState {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      signUpResponse,
-      const DeepCollectionEquality().hash(_uSDPricesList),
-      const DeepCollectionEquality().hash(_gBPPricesList),
-      const DeepCollectionEquality().hash(_eURPricesList),
-      const DeepCollectionEquality().hash(_bitcoinList),
-      isLoading,
-      isError);
+  int get hashCode => Object.hash(runtimeType, updatePriceResult,
+      const DeepCollectionEquality().hash(_bitcoinList), isLoading, isError);
 
   @JsonKey(ignore: true)
   @override
@@ -422,22 +338,13 @@ class _$BitcoinStateImpl implements _BitcoinState {
 
 abstract class _BitcoinState implements BitcoinState {
   const factory _BitcoinState(
-      {final BitcoinEntity? signUpResponse,
-      required final List<PriceEntity> uSDPricesList,
-      required final List<PriceEntity> gBPPricesList,
-      required final List<PriceEntity> eURPricesList,
+      {final Either<Failure, BitcoinEntity>? updatePriceResult,
       required final List<BitcoinEntity> bitcoinList,
       required final bool isLoading,
       required final bool isError}) = _$BitcoinStateImpl;
 
   @override
-  BitcoinEntity? get signUpResponse;
-  @override
-  List<PriceEntity> get uSDPricesList;
-  @override
-  List<PriceEntity> get gBPPricesList;
-  @override
-  List<PriceEntity> get eURPricesList;
+  Either<Failure, BitcoinEntity>? get updatePriceResult;
   @override
   List<BitcoinEntity> get bitcoinList;
   @override
