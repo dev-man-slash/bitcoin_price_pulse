@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../../core/utils/constants/app_colors.dart';
+
 class HomeTab extends StatelessWidget {
   HomeTab({super.key});
 
@@ -14,11 +16,50 @@ class HomeTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var style = GoogleFonts.roboto();
+
     return BlocBuilder<BitcoinBloc, BitcoinState>(
       builder: (context, state) {
         if (state.isLoading || state.updatePriceResult == null) {
           return const Center(child: CircularProgressIndicator());
         }
+        if (state.updatePriceResult != null &&
+            state.updatePriceResult!.isLeft()) {
+          return Center(
+            child: Column(
+              children: [
+                const Spacer(),
+                // Assets.images.networkError.svg(width: 256),
+                const SizedBox(height: 26),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                  ),
+                  child: Text(
+                    'Check your connection',
+                    textAlign: TextAlign.center,
+                    style:
+                        style.copyWith(color: AppColors.red, fontSize: 20),
+                  ),
+                ),
+                const Spacer(),
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: ElevatedButton(
+                    // key: WidgetsKeys.retryButton,
+                    onPressed: () {
+                      context
+                          .read<BitcoinBloc>()
+                          .add(const BitcoinEvent.updatedPrice());
+                    },
+                    child: const Text('Try Again'),
+                  ),
+                ),
+              ],
+            ),
+          );
+        }
+
         const divider = Divider(
           indent: 16,
           height: 1,
@@ -30,7 +71,6 @@ class HomeTab extends StatelessWidget {
             ? state.bitcoinList[state.bitcoinList.length - 2]
             : state.bitcoinList.last;
 
-        var style = GoogleFonts.roboto();
         return Align(
           alignment: Alignment.topCenter,
           child: Stack(

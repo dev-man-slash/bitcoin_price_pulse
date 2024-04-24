@@ -110,54 +110,6 @@ class _HomeViewState extends State<HomeView> {
               (r) {},
             );
           },
-
-          // if (state.signUpResponse != null &&
-          //     state.signUpResponse!.isLeft()) {
-          //   return Center(
-          //     child: Column(
-          //       children: [
-          //         const Spacer(),
-          //         // Assets.images.networkError.svg(width: 256),
-          //         const SizedBox(height: 26),
-          //         Padding(
-          //           padding: const EdgeInsets.symmetric(
-          //             horizontal: 16,
-          //           ),
-          //           child: Text(
-          //             'Check your connection',
-          //             textAlign: TextAlign.center,
-          //             style:
-          //                 style.copyWith(color: AppColors.red, fontSize: 20),
-          //           ),
-          //         ),
-          //         const Spacer(),
-          //         Padding(
-          //           padding: const EdgeInsets.all(16),
-          //           child: ElevatedButton(
-          //             // key: WidgetsKeys.retryButton,
-          //             onPressed: () {
-          //               context
-          //                   .read<BitcoinBloc>()
-          //                   .add(const BitcoinEvent.updatedPrice());
-          //             },
-          //             child: const Text('Try Again'),
-          //           ),
-          //         ),
-          //       ],
-          //     ),
-          //   );
-          // }
-          // if (state.isLoading || state.signUpResponse == null) {
-          //   return const Center(child: CircularProgressIndicator());
-          // }
-          // final tabs = [
-          //   HomeTab(bitcoinList: state.bitcoinList),
-          //   CalcTab(
-          //     bitcoinEURRate: state.bitcoinList.last.bpi?.EUR?.rateFloat ?? 1,
-          //     bitcoinGBPRate: state.bitcoinList.last.bpi?.GBP?.rateFloat ?? 1,
-          //     bitcoinUSDRate: state.bitcoinList.last.bpi?.USD?.rateFloat ?? 1,
-          //   ),
-          // ];
           child: tabs[_selectedIndex],
         ),
       ),

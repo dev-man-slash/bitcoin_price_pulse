@@ -12,7 +12,6 @@ part 'bitcoin_bloc.freezed.dart';
 part 'bitcoin_event.dart';
 part 'bitcoin_state.dart';
 
-// @singleton
 class BitcoinBloc extends Bloc<BitcoinEvent, BitcoinState> {
   final GetPricesUseCase _getPricesUseCase;
 
@@ -38,6 +37,12 @@ class BitcoinBloc extends Bloc<BitcoinEvent, BitcoinState> {
             final Either<Failure, BitcoinEntity> result =
                 await _getPricesUseCase.getPrices();
 
+            emit(
+              state.copyWith(
+                updatePriceResult: result,
+              ),
+            );
+
             result.fold(
               (error) {
                 emit(
@@ -54,7 +59,6 @@ class BitcoinBloc extends Bloc<BitcoinEvent, BitcoinState> {
 
                 emit(
                   state.copyWith(
-                    updatePriceResult: result,
                     bitcoinList: bitcoinList,
                     isLoading: false,
                     isError: false,

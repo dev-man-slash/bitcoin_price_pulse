@@ -27,64 +27,6 @@ class AppRouter {
           return const SizedBox();
         },
       ),
-      // _route(
-      //   name: AppRoutsConstants.filtersPageRoute,
-      //   path: AppRoutsConstants.filtersPageRoute,
-      //   pageBuilder: (state) {
-      //     Map<String, dynamic> data = state.extra! as Map<String, dynamic>;
-      //     return FilterPage(data: data);
-      //   },
-      // ),
-      // _route(
-      //   name: AppRoutsConstants.searchInAdsRoute,
-      //   path: AppRoutsConstants.searchInAdsRoute,
-      //   pageBuilder: (state) {
-      //     return BlocProvider(
-      //       create: (context) => SearchCubit(locator()),
-      //       child: SearchPage(
-      //         searchText: state.uri.queryParameters['searchText'],
-      //       ),
-      //     );
-      //   },
-      // ),
-      // _route(
-      //   name: AppRoutsConstants.mainCategoryPageRout,
-      //   path: AppRoutsConstants.mainCategoryPageRout,
-      //   pageBuilder: (state) {
-      //     return MainCategoriesPage(
-      //       isCategoryPage: state.uri.queryParameters[RoutingKeys.isCategoryPage] == 'true',
-      //       fromSchemaPage: state.uri.queryParameters[RoutingKeys.fromSchemaPage] == 'true',
-      //       isFilterPage: state.uri.queryParameters['isFilterPage'] == 'true',
-      //       isHomePage: state.uri.queryParameters['isHomePage'] == 'true',
-      //     );
-      //   },
-      // ),
-      // _route(
-      //   name: AppRoutsConstants.myAppPageRout,
-      //   path: AppRoutsConstants.myAppPageRout,
-      //   pageBuilder: (state) {
-      //     return const MyAppPage();
-      //   },
-      // ),
-      // _route(
-      //   name: AppRoutsConstants.chatRoute,
-      //   path: AppRoutsConstants.chatRoute,
-      //   pageBuilder: (state) {
-      //     return ChatPage(
-      //       advertId: int.tryParse(state.uri.queryParameters['adId']!)!,
-      //       advertTitle: state.uri.queryParameters['adTitle']!,
-      //       imagePath: state.uri.queryParameters['imagePath'],
-      //       sellerName: state.uri.queryParameters['sellerName']!,
-      //     );
-      //   },
-      // ),
-      // _route(
-      //   name: AppRoutsConstants.chatMainPageRout,
-      //   path: AppRoutsConstants.chatMainPageRout,
-      //   pageBuilder: (state) {
-      //     return const ChatMainPage();
-      //   },
-      // ),
     ],
   );
 

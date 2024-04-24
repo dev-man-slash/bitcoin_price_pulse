@@ -1,3 +1,3 @@
 class ServerKeys {
-  static const baseUrl = 'https://syriamakseb.com/';
+  static const baseUrl = 'https://api.coindesk.com/v1/';
 }

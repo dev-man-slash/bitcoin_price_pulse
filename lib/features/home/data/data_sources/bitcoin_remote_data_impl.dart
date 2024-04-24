@@ -13,7 +13,7 @@ class BitcoinRemoteDataImpl implements BitcoinRemoteData {
       if (error is ServerException) {
         throw (
           ServerException(
-            message: 'Check your connection',
+            message: 'Connection error  :(',
             statusCode: error.response?.statusCode!,
           ),
         );
